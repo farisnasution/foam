@@ -1,4 +1,4 @@
-# formaline
+# foam
 
 Om form on steroids.
 
@@ -36,7 +36,7 @@ Add more field and example.
 
 ## License
 
-Copyright © 2015 FIXME
+Copyright © 2015 Faris Nasution <faris.nasution156@gmail.com>
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
