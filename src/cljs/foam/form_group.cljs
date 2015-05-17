@@ -9,12 +9,12 @@
   (:use-macros [cljs.core.async.macros :only [go-loop]]))
 
 (defn error-messages
-  [fns value]
+  [fns current-value content-value]
   (->> fns
        (map (fn [[f f-msg]]
-              (when-not (f value)
+              (when-not (f current-value content-value)
                 (if (fn? f-msg)
-                  (f-msg value)
+                  (f-msg current-value content-value)
                   f-msg))))
        (filter #(not-nil? %))))
 
@@ -35,8 +35,11 @@
               (let [ch (om/get-state owner :ch)]
                 (go-loop []
                   (let [content (<! ch)
+                        current-value (om/get-state owner :value)
+                        content-value (:value content)
                         new-messages (error-messages validations
-                                                     (:value content))]
+                                                     current-value
+                                                     content-value)]
                     (om/update-state! owner #(assoc %
                                                :messages new-messages
                                                :content content)))
