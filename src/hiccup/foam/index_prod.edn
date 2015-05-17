@@ -1,0 +1,10 @@
+[:html
+ [:head
+  [:title {}
+   Foam]]
+ [:body
+  [:div {:id "main"}]
+  [:script {:src "js/vendor/d3.v3.min.js"
+            :type "text/javascript"}]
+  [:script {:src "js/foam_prod.js"
+            :type "text/javascript"}]]]
