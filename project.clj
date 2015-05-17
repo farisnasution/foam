@@ -1,4 +1,4 @@
-(defproject foam "0.1.0"
+(defproject foam "0.1.1"
   :description "Form library."
   :url "https://github.com/farisnasution/foam"
   :license {:name "Eclipse Public License"

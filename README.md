@@ -28,8 +28,10 @@ Add more field and example.
     :type :password}])
 
 (om/root foam/form
-         {:fields
-          :butotn}
+         {:fields login-form
+          :button {:id :submitbutton
+                   :text "Submit"
+                   :classes "btn-primary"}
          {:target (.getElementById js/document "main")})
 
 ```
