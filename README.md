@@ -15,24 +15,25 @@ Add more field and example.
             [cljs.foam.core :as foam]))
 
 (def login-form
-  [{:id :username
-    :type :text
-    :validations [[(fn [v]
-                     (not (empty? v)))
-                   "Cannot Empty"]
-                  [(fn [v]
-                     (> (count v) 5))
-                   (fn [v]
-                     (str "Length must be greater than 5. Current" (count v)))]]}
-   {:id :password
-    :type :password}])
+  {:fields [{:id :username
+             :type :text
+             :validations [[(fn [whole v]
+                              (not (empty? v)))
+                            "Cannot Empty"]
+                           [((fn [arg-list] ) [whole v]
+                             (> (count v) 5))
+                            (fn [whole v]
+                              (str "Length must be greater than 5. Current" (count v)))]]}
+            {:id :password
+             :type :password}]
+   :button {:id :submitbutton
+            :text "Submit"
+            :classes "btn-primary"}})
 
-(om/root foam/form
-         {:fields login-form
-          :button {:id :submitbutton
-                   :text "Submit"
-                   :classes "btn-primary"}
-         {:target (.getElementById js/document "main")})
+(om/build foam/form
+          login-form
+          {:opts {:submit-fn (fn [owner form-value]
+                               (js/console.log value))}})
 
 ```
 
