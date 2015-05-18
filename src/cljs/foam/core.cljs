@@ -27,15 +27,26 @@
                                       (assoc-in [:value id] value)
                                       (assoc-in [:error id] error))))))
 
-(defn init-error-state
+(defn init-value-state
   [config]
   (->> config
        (map (fn [cfg]
-              (let [{:keys [value validations id]} cfg]
-                {id (-> (fg/error-messages validations value)
-                        seq
-                        boolean)})))
+              (let [{:keys [value id]} cfg]
+                {id value})))
        (apply merge)))
+
+(defn init-error-state
+  [config]
+  (let [current-value (init-value-state config)]
+    (->> config
+         (map (fn [cfg]
+                (let [{:keys [value validations id]} cfg]
+                  {id (-> (fg/error-messages validations
+                                             current-value
+                                             value)
+                          seq
+                          boolean)})))
+         (apply merge))))
 
 (defcomponentk form
   [[:data fields [:button id text {classes "btn-primary"}]]
@@ -45,6 +56,7 @@
   (init-state [_]
               {:ch (chan)
                :message ""
+               :value (init-value-state fields)
                :error (init-error-state fields)})
   (will-mount [_]
               (let [ch (om/get-state owner :ch)]
