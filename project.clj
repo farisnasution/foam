@@ -1,5 +1,5 @@
-(defproject foam "0.1.2"
-  :description "Form library."
+(defproject foam "0.1.3"
+  :description "Om form on steroids"
   :url "https://github.com/farisnasution/foam"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
