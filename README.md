@@ -32,7 +32,7 @@ Add more field and example.
 
 (om/build foam/form
           login-form
-          {:opts {:submit-fn (fn [owner form-value]
+          {:opts {:submit-fn (fn [owner value]
                                (js/console.log value))}})
 
 ```
