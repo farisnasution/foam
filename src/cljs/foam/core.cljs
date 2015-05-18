@@ -88,3 +88,36 @@
                            [:ul {:class "list-unstyled"}
                             [:li {}
                              message]]])]])))
+
+;; (defn example
+;;   [data owner]
+;;   (reify
+;;     om/IRender
+;;     (render [_]
+;;       (html
+;;        (->form {:fields [{:id :name
+;;                           :type :text
+;;                           :label "Name"
+;;                           :validations [[(fn [_ v]
+;;                                            (> (count v) 3))
+;;                                          "Error!"]]
+;;                           :value "1234fwefwe"}
+;;                          {:id :ah
+;;                           :type :select
+;;                                :label "Random"
+;;                           :options [{:value "1"
+;;                                      :text "first"}
+;;                                     {:value "2"
+;;                                      :text "second"}
+;;                                     {:value "3"
+;;                                      :text "third"}]
+;;                           :validations []}]
+;;                 :button {:id :button
+;;                          :text "Submit"
+;;                          :classes "btn-danger"}}
+;;                {:opts {:submit-fn (fn [e v]
+;;                                     (println v))}})))))
+
+;; (om/root example
+;;          {}
+;;          {:target (.getElementById js/document "main")})
