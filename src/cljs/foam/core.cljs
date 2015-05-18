@@ -102,9 +102,9 @@
 ;;                                            (> (count v) 3))
 ;;                                          "Error!"]]
 ;;                           :value "1234fwefwe"}
-;;                          {:id :ah
+;;                          {:id :random
 ;;                           :type :select
-;;                                :label "Random"
+;;                           :label "Random"
 ;;                           :options [{:value "1"
 ;;                                      :text "first"}
 ;;                                     {:value "2"
