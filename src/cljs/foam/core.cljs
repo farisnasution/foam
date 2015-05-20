@@ -49,7 +49,7 @@
          (apply merge))))
 
 (defcomponentk form
-  [[:data fields [:button id text {classes "btn-primary"}]]
+  [[:data fields [:button id {text "Submit"} {classes "btn-primary"}]]
    owner
    [:opts submit-fn]]
   (display-name [_] "form")
