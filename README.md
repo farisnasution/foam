@@ -9,6 +9,16 @@ Add more field and example.
 
 ## Usage
 
+for each field in `:fields`, there are several mandatory keys:
+
+* `:id`
+* `:type`
+* `:label`
+
+and in `:button`:
+
+* `:id`
+
 ```clj
 (ns foobar.core
   (:require [om.core :as om :include-macros true]
@@ -25,7 +35,8 @@ Add more field and example.
                             (fn [whole v]
                               (str "Length must be greater than 5. Current" (count v)))]]}
             {:id :password
-             :type :password}]
+             :type :password
+             :label "Password"}]
    :button {:id :submitbutton
             :text "Submit"
             :classes "btn-primary"}})
