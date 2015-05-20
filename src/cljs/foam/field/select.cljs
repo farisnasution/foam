@@ -31,7 +31,8 @@
                  :field-value value
                  :events ["change"]}))
   (render-state [_ {:keys [field-value]}]
-                (html [:select {:id (name id)
+                (html [:select {:class "form-control"
+                                :id (name id)
                                 :default-value field-value}
                        (om/build-all option
                                      (map-indexed (fn [idx d]

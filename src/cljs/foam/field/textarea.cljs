@@ -18,6 +18,7 @@
                  :field-value value
                  :events ["blur" "keyup"]}))
   (render-state [_ {:keys [field-value]}]
-                (html [:textarea {:id (name id)
+                (html [:textarea {:class "form-control"
+                                  :id (name id)
                                   :value field-value
                                   :onChange (fn [e])}])))

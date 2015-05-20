@@ -18,7 +18,8 @@
                  :field-value value
                  :events ["blur" "keyup"]}))
   (render-state [_ {:keys [field-value]}]
-                (html [:input {:id (name id)
+                (html [:input {:class "form-control"
+                               :id (name id)
                                :type (name type)
                                :value field-value
                                :onChange (fn [e])}])))
